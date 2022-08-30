@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="lodash.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<h1>我是计数器<span>0</span></h1>
+			<button type="button">点击我加1</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let span = document.querySelector("span")
+		let Button = document.querySelector("button")
+		let count = 0
+		// _.throttle 为节流函数
+		Button.onclick = _.throttle(function(){
+			// 节流
+				count++
+				span.innerHTML = count
+				console.log("执行")
+		},5000)
+	</script>
+</html>
