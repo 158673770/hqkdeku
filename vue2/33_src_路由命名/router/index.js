@@ -1,0 +1,45 @@
+/*
+ * @Description: 
+ * @Author: hqk
+ * @Date: 2022-07-11 14:56:51
+ * @LastEditTime: 2022-07-12 09:21:13
+ * @LastEditors: hqk
+ */
+// 该文件用于创建整个应用的路由
+import VueRouter from 'vue-router'
+import About from '../pages/About.vue'
+import Home from '../pages/Home.vue'
+import News from '../pages/News.vue'
+import Message from '../pages/Message.vue'
+import Detail from '../pages/Detail.vue'
+// 创建路由对象
+export default new VueRouter({
+    routes:[
+        {
+            name:'About',
+            path:'/about',
+            component:About
+        },
+        {
+            path:'/home',
+            component:Home,
+            children:[
+                {
+                    path:'news',
+                    component:News
+                },
+                {
+                    path:'message',
+                    component:Message,
+                    children:[
+                        {
+                            name:'Detail',
+                            path:'detail',
+                            component:Detail
+                        }
+                    ]
+                }
+            ]
+        },
+    ]
+})

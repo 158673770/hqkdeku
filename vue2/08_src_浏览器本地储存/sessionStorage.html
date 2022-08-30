@@ -1,0 +1,46 @@
+<!--
+ * @Description: 
+ * @Author: hqk
+ * @Date: 2022-06-30 10:44:37
+ * @LastEditTime: 2022-06-30 11:28:42
+ * @LastEditors: hqk
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+</head>
+<body>
+    <h2>
+        sessionStorage
+    </h2>
+    <button onclick="serveData()">保存一个本地数据</button>
+    <button onclick="readData()">读取一个本地数据</button>
+    <button onclick="deleteData()">删除一个本地数据</button>
+    <button onclick="deleteAllData()">清空一个本地数据</button>
+</body>
+<script type="text/javascript">
+    let p = {name:'张三',age:18};
+     function serveData(){
+       sessionStorage.setItem('msg','hello');
+       sessionStorage.setItem('cs',JSON.stringify(p));
+    }
+    function readData(){
+    //    sessionStorage.setItem('msg','hello');
+    //    sessionStorage.getItem('cs');
+       const cs = JSON.parse(sessionStorage.getItem('cs'));
+       console.log(cs);
+    }
+    function deleteData(){
+    //    sessionStorage.setItem('msg','hello');
+       sessionStorage.removeItem('cs');
+    }
+    function deleteAllData(){
+    //    sessionStorage.setItem('msg','hello');
+       sessionStorage.clear();
+    }
+</script>
+</html>
